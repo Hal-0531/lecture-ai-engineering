@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from mlflow.models.signature import infer_signature
 import time
-
+import sys
 
 # データ準備
 def prepare_data(test_size=0.2, random_state=42):
