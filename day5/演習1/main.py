@@ -57,7 +57,7 @@ def train_and_evaluate(
 
 
 # モデル保存
-def log_model(model, accuracy, params):
+def log_model(model, accuracy, pre_time, params):
     with mlflow.start_run():
         # パラメータをログ
         for param_name, param_value in params.items():
@@ -77,7 +77,7 @@ def log_model(model, accuracy, params):
             input_example=X_test.iloc[:5],  # 入力例を指定
         )
         # accurecyとparmsは改行して表示
-        print(f"モデルのログ記録値 \naccuracy: {accuracy}\nparams: {params}")
+        print(f"モデルのログ記録値 \naccuracy: {accuracy}\npre_time: {pre_time}\nparams: {params}")
 
 
 # メイン処理
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 
     print("Execution complete. Check result.txt for details.")
     # モデル保存
-    log_model(model, accuracy, params)
+    log_model(model, accuracy, pre_time, params)
 
     model_dir = "models"
     os.makedirs(model_dir, exist_ok=True)
