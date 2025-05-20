@@ -10,6 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from mlflow.models.signature import infer_signature
+import time
 
 
 # データ準備
@@ -47,9 +48,12 @@ def train_and_evaluate(
         n_estimators=n_estimators, max_depth=max_depth, random_state=random_state
     )
     model.fit(X_train, y_train)
+    start_time = time.time()
     predictions = model.predict(X_test)
+    end_time = time.time()
+    pre_time = end_time - start_time  # 秒単位
     accuracy = accuracy_score(y_test, predictions)
-    return model, accuracy
+    return model, accuracy, pre_time
 
 
 # モデル保存
@@ -102,7 +106,7 @@ if __name__ == "__main__":
     )
 
     # 学習と評価
-    model, accuracy = train_and_evaluate(
+    model, accuracy, pre_time = train_and_evaluate(
         X_train,
         X_test,
         y_train,
@@ -111,7 +115,12 @@ if __name__ == "__main__":
         max_depth=max_depth,
         random_state=model_random_state,
     )
+    # 結果を保存
+    with open("result.txt", "w") as f:
+        f.write(f"Accuracy: {accuracy:.4f}\n")
+        f.write(f"Pre Timewo: {pre_time:.6f} sec\n")
 
+    print("Execution complete. Check result.txt for details.")
     # モデル保存
     log_model(model, accuracy, params)
 
