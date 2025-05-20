@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: generated-file
-        path: output_file.txt
+        path: result.txt
 
     - name: 結果を表示
       run: cat result.txt
