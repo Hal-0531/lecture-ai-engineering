@@ -27,10 +27,12 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: generated-file
-        path: result.txt
+        path: result.txt, compare.txt
+        
 
     - name: アーティファクトを表示
-      run: cat result.txt
+      run: cat result.txt compare.txt
+      
 
 
   process_artifact:
