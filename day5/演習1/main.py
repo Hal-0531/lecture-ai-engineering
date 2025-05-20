@@ -77,7 +77,7 @@ def log_model(model, accuracy, pre_time, params):
             input_example=X_test.iloc[:5],  # 入力例を指定
         )
         # accurecyとparmsは改行して表示
-        print(f"モデルのログ記録値 \naccuracy: {accuracy}\npre_time: {pre_time}\nparams: {params}")
+        #print(f"モデルのログ記録値 \naccuracy: {accuracy}\npre_time: {pre_time}\nparams: {params}")
 
 
 # メイン処理
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         f.write(f"Accuracy: {accuracy:.4f}\n")
         f.write(f"Pre Time: {pre_time:.6f} sec\n")
 
-    print("Execution complete. Check result.txt for details.")
+    #print("Execution complete. Check result.txt for details.")
     # モデル保存
     log_model(model, accuracy, pre_time, params)
 
@@ -129,4 +129,4 @@ if __name__ == "__main__":
     model_path = os.path.join(model_dir, f"titanic_model.pkl")
     with open(model_path, "wb") as f:
         pickle.dump(model, f)
-    print(f"モデルを {model_path} に保存しました")
+    #print(f"モデルを {model_path} に保存しました")
