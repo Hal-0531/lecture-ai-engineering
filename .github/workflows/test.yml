@@ -49,3 +49,11 @@ jobs:
         path: .
     - name: main.py の実行
       run: python day5/演習1/compare.py > compare.txt
+    
+    - name: 生成されたファイルを保存
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-file
+        path: compare.txt
+    - name: アーティファクトを表示
+      run: cat compare.txt
