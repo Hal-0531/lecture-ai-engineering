@@ -28,3 +28,6 @@ jobs:
       with:
         name: generated-file
         path: result.txt
+    
+    - name: アーティファクトを表示
+      run: cat result.txt
