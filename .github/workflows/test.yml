@@ -23,5 +23,11 @@ jobs:
     - name: main.py の実行
       run: python day5/演習1/main.py > result.txt
 
+    - name: 生成されたファイルを保存
+      uses: actions/upload-artifact@v3
+      with:
+        name: generated-file
+        path: output_file.txt
+
     - name: 結果を表示
       run: cat result.txt
