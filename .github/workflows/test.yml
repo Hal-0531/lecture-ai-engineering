@@ -16,6 +16,10 @@ jobs:
       with:
         python-version: '3.10'
 
+    - name: mlflowのインストール
+      run: 
+        pip install mlflow
+
     - name: main.py の実行
       run: python day5/演習1/main.py > result.txt
 
