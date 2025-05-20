@@ -118,7 +118,7 @@ if __name__ == "__main__":
     # 結果を保存
     with open("result.txt", "w") as f:
         f.write(f"Accuracy: {accuracy:.4f}\n")
-        f.write(f"Pre Timewo: {pre_time:.6f} sec\n")
+        f.write(f"Pre Time: {pre_time:.6f} sec\n")
 
     print("Execution complete. Check result.txt for details.")
     # モデル保存
