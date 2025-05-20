@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: main.py の実行
-      run: python main.py > result.txt
+      run: python day5/演習1/main.py > result.txt
 
     - name: 結果を表示
       run: cat result.txt
