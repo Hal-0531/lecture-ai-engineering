@@ -28,6 +28,21 @@ jobs:
       with:
         name: generated-file
         path: result.txt
-    
+
     - name: アーティファクトを表示
       run: cat result.txt
+
+
+  process_artifact:
+    needs: execute_main  # ファイルが保存されてから実行
+    runs-on: ubuntu-latest
+    steps:
+    - name: チェックアウト
+      uses: actions/checkout@v3
+
+    - name: アーティファクトをダウンロード
+      uses: actions/download-artifact@v4
+      with:
+        name: my-data
+        path: .
+    
