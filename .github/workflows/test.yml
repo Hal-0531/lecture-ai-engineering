@@ -45,9 +45,9 @@ jobs:
     - name: アーティファクトをダウンロード
       uses: actions/download-artifact@v4
       with:
-        name: my-data
+        name: generated-file
         path: .
-    - name: main.py の実行
+    - name: compare.py の実行
       run: python day5/演習1/compare.py > compare.txt
     
     - name: 生成されたファイルを保存
