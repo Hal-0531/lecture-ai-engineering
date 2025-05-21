@@ -21,17 +21,15 @@ jobs:
         pip install mlflow
 
     - name: main.py の実行
-      run: python day5/演習1/main.py result.txt | tee compare.txt result.txt
+      run: python day5/演習1/main.py result.txt > result.txt
 
     - name: 生成されたファイルを保存
       uses: actions/upload-artifact@v4
       with:
         name: generated-files
-        path: |
-          result.txt
-          compare.txt
+        path: result.txt
         
 
     - name: アーティファクトを表示
-      run: cat result.txt compare.txt
+      run: cat result.txt
       
