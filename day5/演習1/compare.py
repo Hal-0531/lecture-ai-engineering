@@ -14,7 +14,7 @@ changed_acc = accuracy - pre_accuracy
 changed_pre = pre_time - pre_pre_time
 if changed_acc < 0:
     result = "モデルの性能が劣化しました"
-if changed_acc = 0:
+elif changed_acc == 0:
     result = "モデルの性能は変化しませんでした"
 else:
     result = "モデルの性能が向上しました"
