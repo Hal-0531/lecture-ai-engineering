@@ -21,39 +21,17 @@ jobs:
         pip install mlflow
 
     - name: main.py の実行
-      run: python day5/演習1/main.py > result.txt
+      run: python day5/演習1/main.py result.txt | tee compare.txt result.txt
 
     - name: 生成されたファイルを保存
       uses: actions/upload-artifact@v4
       with:
-        name: generated-file
-        path: result.txt
+        name: generated-files
+        path: |
+          result.txt
+          compare.txt
         
 
     - name: アーティファクトを表示
-      run: cat result.txt
+      run: cat result.txt compare.txt
       
-
-
-  process_artifact:
-    needs: execute_main  # ファイルが保存されてから実行
-    runs-on: ubuntu-latest
-    steps:
-    - name: チェックアウト
-      uses: actions/checkout@v3
-
-    - name: アーティファクトをダウンロード
-      uses: actions/download-artifact@v4
-      with:
-        name: generated-file
-        path: .
-    - name: compare.py の実行
-      run: python day5/演習1/compare.py result.txt > compare.txt
-    
-    - name: 生成されたファイルを保存
-      uses: actions/upload-artifact@v4
-      with:
-        name: generated-file
-        path: compare.txt
-    - name: アーティファクトを表示
-      run: cat compare.txt
