@@ -136,7 +136,7 @@ if __name__ == "__main__":
     else:
         result = "モデルの性能が向上しました"
     
-    with open("compare.txt", "w") as f:
+    with open("result.txt", "w") as f:
         f.write(f"精度の変化: {changed_acc:.4f}\n")
         f.write(f"推論時間の変化: {changed_pre:.6f} sec\n")
         f.write(f"結果: {result}\n")
