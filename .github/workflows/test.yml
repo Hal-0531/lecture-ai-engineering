@@ -48,7 +48,7 @@ jobs:
         name: generated-file
         path: .
     - name: compare.py の実行
-      run: python day5/演習1/compare.py > compare.txt
+      run: python day5/演習1/compare.py result.txt > compare.txt
     
     - name: 生成されたファイルを保存
       uses: actions/upload-artifact@v4
